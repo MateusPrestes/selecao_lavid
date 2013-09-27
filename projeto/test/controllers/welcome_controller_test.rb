@@ -2,22 +2,24 @@ require 'test_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
   
-  def setup
-   texto = Texto.new("texto")
-  end
-  
   test "should get index" do
     get :index
     assert_response :success
   end
   
-  
   test "should upcase" do
- 	assert_equal(texto.to_upcase, "TEXTO")
+    texto = "texto"
+    assert_equal(texto.upcase, "TEXTO")
   end
  
   test "should reverse" do
- 	assert_equal(texto.to_reverse, "otxet")
+    texto = "texto"
+    assert_equal(texto.reverse, "otxet")
+  end
+  
+  test "should upcase and reverse" do
+    texto = "texto"
+    assert_equal(texto.upcase.reverse, "OTXET")
   end
  
 end
